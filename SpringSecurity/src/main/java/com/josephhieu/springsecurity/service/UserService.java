@@ -42,12 +42,10 @@ public class UserService {
         User_Entity user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Not Found User"));
 
-        user = User_Entity.builder()
-                .password(request.getPassword())
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
-                .dob(request.getDob())
-                .build();
+        user.setPassword(request.getPassword());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setDob(request.getDob());
 
         return userRepository.save(user);
     }
