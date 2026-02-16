@@ -17,6 +17,10 @@ public class UserService {
 
     public User_Entity createRequest(UserCreationRequest request) {
 
+        if (userRepository.existsByUserName(request.getUserName())) {
+            throw new RuntimeException("Username already exist");
+        }
+
         User_Entity userEntity = User_Entity.builder()
                 .userName(request.getUserName())
                 .password(request.getPassword())

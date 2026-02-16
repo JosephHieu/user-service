@@ -4,6 +4,7 @@ import com.josephhieu.springsecurity.dto.request.UserCreationRequest;
 import com.josephhieu.springsecurity.dto.request.UserUpdateRequest;
 import com.josephhieu.springsecurity.entity.User_Entity;
 import com.josephhieu.springsecurity.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User_Entity createUser(@RequestBody UserCreationRequest request) {
+    public User_Entity createUser(@RequestBody @Valid UserCreationRequest request) {
 
         return userService.createRequest(request);
     }
