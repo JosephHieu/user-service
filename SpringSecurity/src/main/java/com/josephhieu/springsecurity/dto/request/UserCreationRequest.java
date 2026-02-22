@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class UserCreationRequest {
 
     @Size(min = 3, message = "USERNAME_INVALID")
-    private String userName;
+    private String username;
 
     @Size(min = 6, message = "INVALID_PASSWORD")
     private String password;
