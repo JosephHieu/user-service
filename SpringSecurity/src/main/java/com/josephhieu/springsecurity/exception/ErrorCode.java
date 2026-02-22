@@ -9,8 +9,8 @@ public enum ErrorCode {
     USER_EXISTED(1001, "User existed"),
     USER_NOT_FOUND(1002, "User Not Found"),
     USERNAME_INVALID(1003, "Username must be at least 3 characters"),
-    INVALID_PASSWORD(1004, "Password must be at least 6 digits")
-
+    INVALID_PASSWORD(1004, "Password must be at least 6 digits"),
+    UNAUTHENTICATED(1005, "Unauthenticated")
 
     ;
 
