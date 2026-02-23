@@ -11,6 +11,7 @@ import io.jsonwebtoken.security.Keys;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,10 +28,10 @@ public class AuthenticationService {
 
     UserRepository userRepository;
 
-    private static final String SECRET =
-            "4f9c2d8b1a7e3c5d9f0a2b6e8c1d3f7a5e9b2c4d6f8a1b3c";
+    @Value("${jwt.secret}")
+    private String SECRET;
 
-    private static final SecretKey SECRET_KEY =
+    private SecretKey SECRET_KEY =
             Keys.hmacShaKeyFor(SECRET.getBytes());
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
